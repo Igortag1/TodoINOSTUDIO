@@ -1,0 +1,13 @@
+<div class="row">
+  <section class="list list-inline margin-top-centr"
+           *ngFor="let list1 of list">
+    <h1>{{list1.listName}}</h1>
+  </section>
+  <section class="list new-list list-inline">
+    <form #myNgForm="ngForm" (submit)="addlist(listName); myNgForm.form.reset()">
+      <input type="text"  [(ngModel)]="listName" name="listName">
+    </form>
+  </section>
+</div>
+
+
