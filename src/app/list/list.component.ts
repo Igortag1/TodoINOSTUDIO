@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {NgForm} from '@angular/forms';
 import _ = require('lodash');
 console.log('listCtrl');
 @Component({
@@ -29,5 +28,8 @@ export class ListComponent {
       listName: listName
     });
     console.log('listName', listName);
+  }
+  removeList(list1) {
+    _.pull(this.list, list1);
   }
 }

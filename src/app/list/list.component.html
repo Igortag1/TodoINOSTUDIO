@@ -2,8 +2,14 @@
   <section class="list list-inline margin-top-centr"
            *ngFor="let list1 of list">
     <h1>{{list1.listName}}</h1>
+    <a (click)="removeList(list1)" class="hand">
+      <div class="remove remove-list"></div>
+    </a>
   </section>
-  <section class="list new-list list-inline">
+
+
+
+  <section class="list new-list list-inline margin-top-centr">
     <form #myNgForm="ngForm" (submit)="addlist(listName); myNgForm.form.reset()">
       <input type="text"  [(ngModel)]="listName" name="listName">
     </form>
