@@ -3,14 +3,24 @@
            *ngFor="let list of lists">
     <h1>{{list.listName}}</h1>
     <div class="card" *ngFor="let cards of getCards(list)">
-      {{cards.description}}
+      <div *ngIf="!isEditing">
+        {{cards.description}}
+        <div (click)="editCard(cards)" class="edit-small edit-card hand"></div>
+        <div (click)="deleteCard(cards)" class="remove-small remove-card hand"></div>
+      </div>
+      <div *ngIf="isEditing">
+        <form (submit)="updateCard(cards)">
+          <input type="text" [(ngModel)]="EditingCard.description" name="EditingCard.description">
+        </form>
+      </div>
+
     </div>
     <a (click)="removeList(list)" class="hand">
       <div class="remove remove-list"></div>
     </a>
     <section class="new-card">
       <form #myNgFormCard="ngForm" (submit)="createCard(list); myNgFormCard.form.reset()">
-        <input type="text" [(ngModel)]="list.Description" name="description"  placeholder="New card">
+        <input type="text" [(ngModel)]="list.Description" name="description" placeholder="New card">
       </form>
     </section>
   </section>

@@ -6,6 +6,7 @@ import _= require('lodash');
   styleUrls: ['../../css/trello.css', '../../css/normalize.css', '../../css/foundation.min.css']
 })
 
+
 export class ListComponent {
   lists = [];
   cards = [];
@@ -32,5 +33,22 @@ export class ListComponent {
       description: list.Description,
       list_id: list.idList
     });
+  }
+  isEditing = false;
+  EditingCard = null;
+  card = null;
+  editCard(cards) {
+  this.isEditing = true;
+  this.EditingCard = _.cloneDeep(cards);
+  }
+  updateCard(updatingCard) {
+   this.card = _.find(this.cards, {id: updatingCard.id});
+   this.card.description = updatingCard.description;
+   this.isEditing = false;
+   this.EditingCard = null;
+  }
+
+  deleteCard(cards) {
+    return _.pull(this.cards, cards);
   }
 }
