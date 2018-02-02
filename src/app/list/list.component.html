@@ -1,16 +1,16 @@
 <div class="row">
   <section class="list list-inline margin-top-centr"
-           *ngFor="let list1 of list">
-    <h1>{{list1.listName}}</h1>
+           *ngFor="let list of lists">
+    <h1>{{list.listName}}</h1>
     <div class="card" *ngFor="let cards of getCards(list)">
       {{cards.description}}
     </div>
-    <a (click)="removeList(list1)" class="hand">
+    <a (click)="removeList(list)" class="hand">
       <div class="remove remove-list"></div>
     </a>
     <section class="new-card">
-      <form #myNgFormCard="ngForm" (submit)="createCard(list1,Description); myNgFormCard.form.reset()">
-        <input type="text" [(ngModel)]="list1.Description" name="description"  placeholder="New card">
+      <form #myNgFormCard="ngForm" (submit)="createCard(list); myNgFormCard.form.reset()">
+        <input type="text" [(ngModel)]="list.Description" name="description"  placeholder="New card">
       </form>
     </section>
   </section>

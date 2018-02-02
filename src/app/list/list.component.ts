@@ -7,40 +7,8 @@ import _= require('lodash');
 })
 
 export class ListComponent {
-  list = [
-    // {
-    //   idList: 'list_001',
-    //   listName: 'Todo #1',
-    //   cardDiskription: '1'
-    // },
-    // {
-    //   idList: 'list_002',
-    //   listName: 'Todo #2',
-    //   cardDiskription: '2'
-    // },
-    // {
-    //   idList: 'list_003',
-    //   listName: 'Todo #3',
-    //   cardDiskription: '3'
-    // }
-  ];
-  cards = [
-    // {
-    //   id: 'card_001',
-    //   description: '#1',
-    //   list_id: 1
-    // },
-    // {
-    //   id: 'card_002',
-    //   description: '#2',
-    //   list_id: 2
-    // },
-    // {
-    //   id: 'card_003',
-    //   description: '#3',
-    //   list_id: 3
-    // }
-  ];
+  lists = [];
+  cards = [];
   getCards (list) {
     return _.filter(this.cards, {list_id: list.idList});
 
@@ -48,20 +16,20 @@ export class ListComponent {
 
 
   addlist(listName) {
-    this.list.push({
+    this.lists.push({
       idList: _.uniqueId('list_'),
       listName: listName
     });
     console.log('listName:', listName);
   }
   removeList(list1) {
-    _.pull(this.list, list1);
+    _.pull(this.lists, list1);
   }
 
-  createCard(list, Description) {
+  createCard(list) {
     this.cards.push({
       id: _.uniqueId('list_'),
-      description: Description,
+      description: list.Description,
       list_id: list.idList
     });
   }
