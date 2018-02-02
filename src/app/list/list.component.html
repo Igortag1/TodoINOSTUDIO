@@ -9,7 +9,7 @@
       <div class="remove remove-list"></div>
     </a>
     <section class="new-card">
-      <form #myNgFormCard="ngForm" (submit)="createCard(list); myNgFormCard.form.reset()">
+      <form #myNgFormCard="ngForm" (submit)="createCard(list1,Description); myNgFormCard.form.reset()">
         <input type="text" [(ngModel)]="list1.Description" name="description"  placeholder="New card">
       </form>
     </section>
