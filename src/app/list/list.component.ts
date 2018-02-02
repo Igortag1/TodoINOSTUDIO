@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import _ = require('lodash');
-console.log('listCtrl');
+import _= require('lodash');
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -9,27 +8,58 @@ console.log('listCtrl');
 
 export class ListComponent {
   list = [
-    // {
-    //   id: 'list_001',
-    //   listName: 'Todo'
-    // },
-    // {
-    //   id: 'list_002',
-    //   listName: 'Doing'
-    // },
-    // {
-    //   id: 'list_003',
-    //   listName: 'Done'
-    // }
+    {
+      idList: 'list_001',
+      listName: 'Todo #1'
+    },
+    {
+      idList: 'list_002',
+      listName: 'Todo #2'
+    },
+    {
+      idList: 'list_003',
+      listName: 'Todo #3'
+    }
   ];
+  cards = [
+    {
+      id: 'card_001',
+      description: '#1',
+      list_id: 1
+    },
+    {
+      id: 'card_002',
+      description: '#2',
+      list_id: 2
+    },
+    {
+      id: 'card_003',
+      description: '#3',
+      list_id: 3
+    }
+  ];
+  getCards (list) {
+    return _.filter(this.cards, {list_id: list.idList});
+
+  }
+
+
   addlist(listName) {
     this.list.push({
-      id: _.uniqueId('list_'),
+      idList: _.uniqueId('list_'),
       listName: listName
     });
-    console.log('listName', listName);
+    console.log('listName:', listName);
   }
   removeList(list1) {
     _.pull(this.list, list1);
+  }
+
+  createCard(list, cardDescription) {
+    this.cards.push({
+      id: _.uniqueId('list_'),
+      description: cardDescription,
+      list_id: list.idList
+    });
   }
 }
