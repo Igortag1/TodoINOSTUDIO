@@ -35,17 +35,17 @@ export class ListComponent {
     });
   }
   isEditing = false;
-  EditingCard = null;
+  // EditingCard = null;
   card = null;
-  editCard(cards) {
+  editCard(card) {
   this.isEditing = true;
-  this.EditingCard = _.cloneDeep(cards);
+  // this.EditingCard = _.cloneDeep(cards);
   }
   updateCard(updatingCard) {
    this.card = _.find(this.cards, {id: updatingCard.id});
    this.card.description = updatingCard.description;
    this.isEditing = false;
-   this.EditingCard = null;
+   // this.EditingCard = null;
   }
 
   deleteCard(cards) {

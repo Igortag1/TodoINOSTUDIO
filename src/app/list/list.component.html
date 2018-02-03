@@ -2,15 +2,15 @@
   <section class="list list-inline margin-top-centr"
            *ngFor="let list of lists">
     <h1>{{list.listName}}</h1>
-    <div class="card" *ngFor="let cards of getCards(list)">
+    <div class="card" *ngFor="let card of getCards(list)">
       <div *ngIf="!isEditing">
-        {{cards.description}}
-        <div (click)="editCard(cards)" class="edit-small edit-card hand"></div>
-        <div (click)="deleteCard(cards)" class="remove-small remove-card hand"></div>
+        {{card.description}}
+        <div (click)="editCard(card)" class="edit-small edit-card hand"></div>
+        <div (click)="deleteCard(card)" class="remove-small remove-card hand"></div>
       </div>
       <div *ngIf="isEditing">
-        <form (submit)="updateCard(cards)">
-          <input type="text" [(ngModel)]="EditingCard.description" name="EditingCard.description">
+        <form (submit)="updateCard(card)">
+          <input type="text" [(ngModel)]="card.description" name="EditingCard.description">
         </form>
       </div>
 
