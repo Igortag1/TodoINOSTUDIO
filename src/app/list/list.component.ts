@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import _= require('lodash');
+import {DragulaService} from 'ng2-dragula';
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -10,6 +12,11 @@ import _= require('lodash');
 export class ListComponent {
   lists = [];
   cards = [];
+  constructor(private dragulaService: DragulaService) {
+    dragulaService.setOptions('fourth-bag', {
+      revertOnSpill: true
+    });
+  }
   getCards (list) {
     return _.filter(this.cards, {list_id: list.idList});
 

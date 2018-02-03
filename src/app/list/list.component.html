@@ -2,6 +2,7 @@
   <section class="list list-inline margin-top-centr"
            *ngFor="let list of lists">
     <h1>{{list.listName}}</h1>
+    <div [dragula] = '"fourth-bag"'>
     <div class="card" *ngFor="let card of getCards(list)">
       <div *ngIf="!card.editing">
         {{card.description}}
@@ -11,7 +12,7 @@
       <div *ngIf="card.editing">
         <input (keyup.enter)="updateCard(card)" type="text" [(ngModel)]="card.description" name="description">
       </div>
-
+    </div>
     </div>
     <a (click)="removeList(list)" class="hand">
       <div class="remove remove-list"></div>
