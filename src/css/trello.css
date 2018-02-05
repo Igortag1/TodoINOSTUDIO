@@ -97,7 +97,7 @@ input{
 
 .card{
   padding: 20px;
-  background-color: #FFF;
+  background-color: #FFF !important;
   border-radius: 4px;
   margin: 10px 0;
   border: 1px solid #b9b9b9;
