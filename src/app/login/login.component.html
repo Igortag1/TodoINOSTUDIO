@@ -1,0 +1,8 @@
+<div [hidden]="auth.loggingIn">
+  <mat-card>
+    <div class="loading"><button mat-raised-button color="accent" (click)="loginWithGoogle()">Login With Google</button></div>
+  </mat-card>
+</div>
+<div class="loading" *ngIf="auth.loggingIn">
+  <mat-spinner></mat-spinner>
+</div>

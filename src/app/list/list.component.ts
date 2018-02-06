@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import _= require('lodash');
 import {DragulaService} from 'ng2-dragula';
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
