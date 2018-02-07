@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import _= require('lodash');
+import * as _ from 'lodash';
 import {DragulaService} from 'ng2-dragula';
 
 
