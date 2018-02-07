@@ -16,7 +16,9 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RoutingModule} from './app-routing.module';
 import {AuthService} from './services/auth.service';
-import {MatButtonModule, MatCardModule, MatProgressSpinnerModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatInputModule, MatProgressSpinnerModule} from '@angular/material';
+import {AuthphoneComponent} from './authphone/authphone.component';
+import {WindowService} from './services/window.service';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import {MatButtonModule, MatCardModule, MatProgressSpinnerModule} from '@angular
     ListComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    AuthphoneComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +42,10 @@ import {MatButtonModule, MatCardModule, MatProgressSpinnerModule} from '@angular
     RoutingModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatInputModule
   ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+  providers: [AuthService, WindowService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

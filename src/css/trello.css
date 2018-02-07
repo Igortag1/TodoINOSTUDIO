@@ -146,10 +146,6 @@ input.search{
   margin-right: 10px;
 }
 
-/*.select-list{*/
-  /*margin: 10px 0 0 0;*/
-/*}*/
-
 .header-link{
   color: #FFF;
   vertical-align: middle;
@@ -159,10 +155,17 @@ input.search{
   color: #e3e3e3;
 }
 
-.loading {
-  display: block;
+.loadingGoogle {
+  display: inline-block;
+  float: left;
   margin-left: 50%;
 }
+
+.loadingPhone {
+  margin-left: 60%;
+}
+
+
 
 
 [ng\:cloak], [ng-cloak], .ng-cloak {

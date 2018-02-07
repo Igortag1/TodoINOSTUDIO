@@ -1,0 +1,35 @@
+<div class="autPhonestyle" [hidden]="user">
+
+
+  <label class="headstyle">Мобильный телефон</label><br>
+  <input type="text" size="2" [(ngModel)]="phoneNumber.country"  class="input" placeholder="7"    maxlength="2">
+  <input type="text" size="2" [(ngModel)]="phoneNumber.area"     class="input" placeholder="3 цифры"  maxlength="3">
+  <input type="text" size="2" [(ngModel)]="phoneNumber.prefix"   class="input" placeholder="3 цифры"  maxlength="3">
+  <input type="text" size="2" [(ngModel)]="phoneNumber.line"     class="input" placeholder="4 цифры" maxlength="4">
+
+  <hr>
+
+  <div id="recaptcha-container"></div>
+
+  <hr>
+
+  <button class="button is-info" (click)="sendLoginCode()">Получить СМС</button>
+
+  <div *ngIf="windowRef.confirmationResult">
+    <hr>
+    <label>Введите полученный код из СМС</label><br>
+    <input type="text" size="2" name="code" [(ngModel)]="verificationCode" class="input">
+
+    <button class="button is-success" (click)="verifyLoginCode()">Подтвердить СМС</button>
+  </div>
+
+</div>
+
+
+<div *ngIf="user">
+
+  <div class="notification is-success">You have successfully logged in with your phone number!</div>
+
+  UserId: {{ user?.uid }}
+
+</div>
